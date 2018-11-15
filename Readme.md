@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/PrefilterFieldVsField/Form1.cs) (VB: [Form1.vb](./VB/PrefilterFieldVsField/Form1.vb))
+* [Program.cs](./CS/PrefilterFieldVsField/Program.cs) (VB: [Program.vb](./VB/PrefilterFieldVsField/Program.vb))
+<!-- default file list end -->
 # How to define a filter criterion where two data fields are compared to each other
 
 
