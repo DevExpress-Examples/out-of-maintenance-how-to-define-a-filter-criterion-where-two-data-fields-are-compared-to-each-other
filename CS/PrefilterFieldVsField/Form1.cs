@@ -18,7 +18,7 @@ namespace PrefilterFieldVsField {
         private void Form1_Load(object sender, EventArgs e) {
             SetupPivot(pivotGridControl1);
 
-            pivotGridControl1.Prefilter.Criteria = new OperandProperty("ActualSale") > new OperandProperty("ForecastSale");
+            pivotGridControl1.ActiveFilterCriteria = new OperandProperty("ActualSale") > new OperandProperty("ForecastSale");
         }
 
         private void SetupPivot(PivotGridControl grid) {
@@ -42,17 +42,13 @@ namespace PrefilterFieldVsField {
 
             grid.DataSource = new BindingSource(Table, "");
 
-            grid.Fields.Add("Category Name", PivotArea.RowArea);
-            grid.Fields.Add("Product Name", PivotArea.RowArea);
-            grid.Fields.Add("Year", PivotArea.FilterArea);
-            grid.Fields.Add("ForecastSale", PivotArea.DataArea);
-            grid.Fields.Add("ActualSale", PivotArea.DataArea);
-            grid.Fields.Add("Employee Name", PivotArea.FilterArea);
-            grid.Fields["Year"].Width = 70;
-            grid.Fields["ForecastSale"].CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            grid.Fields["ForecastSale"].CellFormat.FormatString = "c";
-            grid.Fields["ActualSale"].CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            grid.Fields["ActualSale"].CellFormat.FormatString = "c";
+            grid.Fields.AddDataSourceColumn("Category Name", PivotArea.RowArea);
+            grid.Fields.AddDataSourceColumn("Product Name", PivotArea.RowArea);
+            grid.Fields.AddDataSourceColumn("Year", PivotArea.FilterArea);
+            grid.Fields.AddDataSourceColumn("ForecastSale", PivotArea.FilterArea);
+            grid.Fields.AddDataSourceColumn("ActualSale", PivotArea.FilterArea);
+            grid.Fields.AddDataSourceColumn("Quantity", PivotArea.DataArea);
+
         }
     }
 }

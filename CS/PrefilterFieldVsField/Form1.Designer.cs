@@ -33,6 +33,8 @@
             this.pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
             this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.OptionsData.DataProcessingEngine = DevExpress.XtraPivotGrid.PivotDataProcessingEngine.Optimized;
+            this.pivotGridControl1.OptionsFilter.DefaultFilterEditorView = DevExpress.XtraEditors.FilterEditorViewMode.VisualAndText;
             this.pivotGridControl1.Size = new System.Drawing.Size(592, 382);
             this.pivotGridControl1.TabIndex = 0;
             // 
@@ -43,7 +45,8 @@
             this.ClientSize = new System.Drawing.Size(592, 382);
             this.Controls.Add(this.pivotGridControl1);
             this.Name = "Form1";
-            this.Text = "How to define a filter criterion where two data fields are compared to each other";
+            this.Text = "How to define a filter criterion where two data fields are compared to each other" +
+    "";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).EndInit();
             this.ResumeLayout(false);

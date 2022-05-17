@@ -20,7 +20,7 @@ Namespace PrefilterFieldVsField
 		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 			SetupPivot(pivotGridControl1)
 
-			pivotGridControl1.Prefilter.Criteria = New OperandProperty("ActualSale") > New OperandProperty("ForecastSale")
+			pivotGridControl1.ActiveFilterCriteria = New OperandProperty("ActualSale") > New OperandProperty("ForecastSale")
 		End Sub
 
 		Private Sub SetupPivot(ByVal grid As PivotGridControl)
@@ -44,17 +44,12 @@ Namespace PrefilterFieldVsField
 
 			grid.DataSource = New BindingSource(Table, "")
 
-			grid.Fields.Add("Category Name", PivotArea.RowArea)
-			grid.Fields.Add("Product Name", PivotArea.RowArea)
-			grid.Fields.Add("Year", PivotArea.FilterArea)
-			grid.Fields.Add("ForecastSale", PivotArea.DataArea)
-			grid.Fields.Add("ActualSale", PivotArea.DataArea)
-			grid.Fields.Add("Employee Name", PivotArea.FilterArea)
-			grid.Fields("Year").Width = 70
-			grid.Fields("ForecastSale").CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-			grid.Fields("ForecastSale").CellFormat.FormatString = "c"
-			grid.Fields("ActualSale").CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-			grid.Fields("ActualSale").CellFormat.FormatString = "c"
+			grid.Fields.AddDataSourceColumn("Category Name", PivotArea.RowArea)
+			grid.Fields.AddDataSourceColumn("Product Name", PivotArea.RowArea)
+			grid.Fields.AddDataSourceColumn("ForecastSale", PivotArea.FilterArea)
+			grid.Fields.AddDataSourceColumn("ActualSale", PivotArea.FilterArea)
+			grid.Fields.AddDataSourceColumn("Quantity", PivotArea.DataArea)
+
 		End Sub
 	End Class
 End Namespace
